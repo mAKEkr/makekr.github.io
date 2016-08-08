@@ -1,4 +1,4 @@
-<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/" version="2.0"><channel><title>ake.kr</title><description>Thoughts, stories and ideas.</description><link>http://localhost:2368/</link><generator>Ghost 0.9</generator><lastBuildDate>Mon, 08 Aug 2016 08:32:33 GMT</lastBuildDate><atom:link href="http://localhost:2368/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title>Github Pages로 Ghost 이용하기 #Intro - 황혼부터 삽질까지</title><description>&lt;p&gt;블로그를 세번이나 갈아엎었다. 내 홈페이지에 자주 방문할 사람이 있을까 싶지만, "이새끼는 뭐하는데 블로그를 자주 갈아엎어?" 라면서 물어볼때를 대비하여 댈만한 이유들은 참 많지만 핵심적인 이유들을 꼽자면&lt;/p&gt;
+<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/" version="2.0"><channel><title>ake.kr</title><description>Thoughts, stories and ideas.</description><link>http://localhost:2368/</link><generator>Ghost 0.9</generator><lastBuildDate>Mon, 08 Aug 2016 08:34:17 GMT</lastBuildDate><atom:link href="http://localhost:2368/rss/" rel="self" type="application/rss+xml"/><ttl>60</ttl><item><title>Github Pages로 Ghost 이용하기 #Intro - 황혼부터 삽질까지</title><description>&lt;p&gt;블로그를 세번이나 갈아엎었다. 내 홈페이지에 자주 방문할 사람이 있을까 싶지만, "이새끼는 뭐하는데 블로그를 자주 갈아엎어?" 라면서 물어볼때를 대비하여 댈만한 이유들은 참 많지만 핵심적인 이유들을 꼽자면&lt;/p&gt;
 
 &lt;ol&gt;
 &lt;li&gt;XE를 더이상 안쓴다  &lt;/li&gt;
@@ -6,7 +6,7 @@
 &lt;li&gt;자원도 얼마 안들어가는 블로그인데 코노하에 10달러씩 꼬박꼬박 바치고있는게 배가 아프다&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;p&gt;이게 핵심적인 요소들이다(3번은 좀 이상하긴 한데, 그렇다고&lt;/p&gt;</description><link>http://localhost:2368/github-pagesro-ghost-iyonghagi-intro/</link><guid isPermaLink="false">83f79b58-98b4-4c19-a088-26192e06149f</guid><dc:creator>Jin Hu, Baek</dc:creator><pubDate>Mon, 08 Aug 2016 07:25:00 GMT</pubDate><content:encoded>&lt;p&gt;블로그를 세번이나 갈아엎었다. 내 홈페이지에 자주 방문할 사람이 있을까 싶지만, "이새끼는 뭐하는데 블로그를 자주 갈아엎어?" 라면서 물어볼때를 대비하여 댈만한 이유들은 참 많지만 핵심적인 이유들을 꼽자면&lt;/p&gt;
+&lt;p&gt;이게 핵심적인 요소들이다(3번은 좀 이상하긴 한데, 그렇다고&lt;/p&gt;</description><link>http://localhost:2368/tutorial-blogging-using-ghost-at-github-pages-intro/</link><guid isPermaLink="false">83f79b58-98b4-4c19-a088-26192e06149f</guid><category>Ghost</category><category>Tutorial</category><dc:creator>Jin Hu, Baek</dc:creator><pubDate>Mon, 08 Aug 2016 07:25:00 GMT</pubDate><content:encoded>&lt;p&gt;블로그를 세번이나 갈아엎었다. 내 홈페이지에 자주 방문할 사람이 있을까 싶지만, "이새끼는 뭐하는데 블로그를 자주 갈아엎어?" 라면서 물어볼때를 대비하여 댈만한 이유들은 참 많지만 핵심적인 이유들을 꼽자면&lt;/p&gt;
 
 &lt;ol&gt;
 &lt;li&gt;XE를 더이상 안쓴다  &lt;/li&gt;
@@ -37,7 +37,7 @@
 
 &lt;h2 id=""&gt;시행착오&lt;/h2&gt;
 
-&lt;p&gt;시행착오는 솔직히 한탄에 가깝다. 그러니까 불필요하다 싶으면 &lt;a href="http://localhost:2368/github-pagesro-ghost-iyonghagi-intro/#installstep"&gt;설치과정&lt;/a&gt;으로 넘어가시는걸 적극권장 한다.&lt;/p&gt;
+&lt;p&gt;시행착오는 솔직히 한탄에 가깝다. 그러니까 불필요하다 싶으면 &lt;a href="http://localhost:2368/tutorial-blogging-using-ghost-at-github-pages-intro/#installstep"&gt;설치과정&lt;/a&gt;으로 넘어가시는걸 적극권장 한다.&lt;/p&gt;
 
 &lt;p&gt;솔직히 설치 처음부터 상당히 애를먹었다. 아무런 문서도 없고, 아무런 사람들의 이야기도 없이 설치한다는게 워낙 고역이다...&lt;/p&gt;
 
