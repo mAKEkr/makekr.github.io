@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <title>Ghost를 쓰면서 보인 정적페이지 생성기(Buster)의 문제점</title>
+    <meta name="description" content="" />
+
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="shortcut icon" href="/favicon.ico">
+
+    <link rel="stylesheet" type="text/css" href="/assets/css/screen.css?v=314707dfcd" />
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" />
+
+    <link rel="canonical" href="http://ake.kr/ghost-static-page-hosting-problems/" />
+    <meta name="referrer" content="origin-when-cross-origin" />
+    
+    <meta property="og:site_name" content="ake.kr" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="Ghost를 쓰면서 보인 정적페이지 생성기(Buster)의 문제점" />
+    <meta property="og:description" content="하루만에 이 글을 쓰게될줄은 몰랐다... 그 이유는 buster패키지가 개판이라. 이런 이유를 쓰는것 자체로만 봐도 약간 &#x27;어리석다&#x27; 라고 할 수 있을텐데, 그래도 문제는 문제잖냐. 패키지의 관리가 2년째 이루어지지 않는다 마지막 저장소 업데이트가 2014년 10월 26일이다. 내 입대일이 2014년 10월 07일이였으니 의문의 1승을 거두고간다. 그 덕분에 생긴 문제들을 열거하자면 다음과 같다. 테마가" />
+    <meta property="og:url" content="http://ake.kr/ghost-static-page-hosting-problems/" />
+    <meta property="article:published_time" content="2016-08-12T12:04:18.000Z" />
+    <meta property="article:modified_time" content="2016-08-12T12:04:20.000Z" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Ghost를 쓰면서 보인 정적페이지 생성기(Buster)의 문제점" />
+    <meta name="twitter:description" content="하루만에 이 글을 쓰게될줄은 몰랐다... 그 이유는 buster패키지가 개판이라. 이런 이유를 쓰는것 자체로만 봐도 약간 &#x27;어리석다&#x27; 라고 할 수 있을텐데, 그래도 문제는 문제잖냐. 패키지의 관리가 2년째 이루어지지 않는다 마지막 저장소 업데이트가 2014년 10월 26일이다. 내 입대일이 2014년 10월 07일이였으니 의문의 1승을 거두고간다. 그 덕분에 생긴 문제들을 열거하자면 다음과 같다. 테마가" />
+    <meta name="twitter:url" content="http://ake.kr/ghost-static-page-hosting-problems/" />
+    <meta name="twitter:label1" content="Written by" />
+    <meta name="twitter:data1" content="Jin Hu, Baek" />
+    
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "publisher": {
+        "@type": "Organization",
+        "name": "ake.kr",
+        "logo": "http://ake.kr/content/images/2016/08/---.jpg"
+    },
+    "author": {
+        "@type": "Person",
+        "name": "Jin Hu, Baek",
+        "url": "http://ake.kr/author/jin/",
+        "sameAs": []
+    },
+    "headline": "Ghost를 쓰면서 보인 정적페이지 생성기(Buster)의 문제점",
+    "url": "http://ake.kr/ghost-static-page-hosting-problems/",
+    "datePublished": "2016-08-12T12:04:18.000Z",
+    "dateModified": "2016-08-12T12:04:20.000Z",
+    "description": "하루만에 이 글을 쓰게될줄은 몰랐다... 그 이유는 buster패키지가 개판이라. 이런 이유를 쓰는것 자체로만 봐도 약간 &#x27;어리석다&#x27; 라고 할 수 있을텐데, 그래도 문제는 문제잖냐. 패키지의 관리가 2년째 이루어지지 않는다 마지막 저장소 업데이트가 2014년 10월 26일이다. 내 입대일이 2014년 10월 07일이였으니 의문의 1승을 거두고간다. 그 덕분에 생긴 문제들을 열거하자면 다음과 같다. 테마가"
+}
+    </script>
+
+    <meta name="generator" content="Ghost 0.9" />
+    <link rel="alternate" type="application/rss+xml" title="ake.kr" href="http://ake.kr/rss/" />
+    <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-51528367-1', 'auto');
+  ga('send', 'pageview');
+</script>
+</head>
+<body class="post-template nav-closed">
+
+    <div class="nav">
+    <h3 class="nav-title">Menu</h3>
+    <a href="#" class="nav-close">
+        <span class="hidden">Close</span>
+    </a>
+    <ul>
+            <li class="nav-home" role="presentation"><a href="http://ake.kr/">Home</a></li>
+    </ul>
+        <a class="subscribe-button icon-feed" href="http://ake.kr/rss/">Subscribe</a>
+</div>
+<span class="nav-cover"></span>
+
+
+    <div class="site-wrapper">
+
+        
+
+
+<header class="main-header post-head no-cover">
+    <nav class="main-nav  clearfix">
+        <a class="blog-logo" href="http://ake.kr"><img src="/content/images/2016/08/---.jpg" alt="ake.kr" /></a>
+            <a class="menu-button icon-menu" href="#"><span class="word">Menu</span></a>
+    </nav>
+</header>
+
+<main class="content" role="main">
+    <article class="post">
+
+        <header class="post-header">
+            <h1 class="post-title">Ghost를 쓰면서 보인 정적페이지 생성기(Buster)의 문제점</h1>
+            <section class="post-meta">
+                <time class="post-date" datetime="2016-08-12">12 August 2016</time> 
+            </section>
+        </header>
+
+        <section class="post-content">
+            <p>하루만에 이 글을 쓰게될줄은 몰랐다... 그 이유는 buster패키지가 개판이라.
+이런 이유를 쓰는것 자체로만 봐도 약간 '어리석다' 라고 할 수 있을텐데, 그래도 문제는 문제잖냐.</p>
+
+<h2 id="2">패키지의 관리가 2년째 이루어지지 않는다</h2>
+
+<p>마지막 저장소 업데이트가 2014년 10월 26일이다. 내 입대일이 2014년 10월 07일이였으니 의문의 1승을 거두고간다.
+그 덕분에 생긴 문제들을 열거하자면 다음과 같다.</p>
+
+<ul>
+<li>테마가 제대로 복사되지 않고</li>
+<li>doctype과 HTML태그가 제대로 들어가지 않고</li>
+<li>주소 갱신이 제대로 되지 않으며</li>
+<li>RSS조차 제대로 작동하지 않는다.</li>
+<li>페이지 삭제도 감지를 못해 삭제된 페이지가 유지된다
+(이건 Brute-force 방식으로 페이지를 긁어오는 Buster문제다.)</li>
+</ul>
+
+<p>다행히 이 문제들은 fork된 저장소들에서 해결되고있다. 그렇지만 그동안 생긴 버그가 한뭉탱이.. 수습이 안된다.</p>
+
+<p>이 와중에 모든 Ghost안내 가이드 문서들은 2년이 넘은 buster를 사용하라며 권유하고있고, 그 상태를 보면 별로 달갑지가 않다..</p>
+
+<p>필자는 다음의 Fork된 Buster사용을 권장한다.</p>
+
+<ul>
+<li>github/Misiur/Buster : <a href="https://github.com/Misiur/buster">링크</a></li>
+</ul>
+
+<p>현재 사용중이지만 큰 문제없이 잘 사용중에 있고(generate할때 막판에 오류가 뿜긴하는데..) 계속 업데이트되는걸로 보인다. Ghost를 잘 사용하게 될수 있을까 싶기도 하다.</p>
+        </section>
+
+        <footer class="post-footer">
+
+
+
+            <section class="author">
+                <h4><a href="/author/jin/">Jin Hu, Baek</a></h4>
+
+                    <p>Read <a href="/author/jin/">more posts</a> by this author.</p>
+                <div class="author-meta">
+                    
+                    
+                </div>
+            </section>
+
+
+            <section class="share">
+                <h4>Share this post</h4>
+                <a class="icon-twitter" href="https://twitter.com/intent/tweet?text=Ghost%EB%A5%BC%20%EC%93%B0%EB%A9%B4%EC%84%9C%20%EB%B3%B4%EC%9D%B8%20%EC%A0%95%EC%A0%81%ED%8E%98%EC%9D%B4%EC%A7%80%20%EC%83%9D%EC%84%B1%EA%B8%B0(Buster)%EC%9D%98%20%EB%AC%B8%EC%A0%9C%EC%A0%90&amp;url=http://ake.kr/ghost-static-page-hosting-problems/"
+                    onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                    <span class="hidden">Twitter</span>
+                </a>
+                <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=http://ake.kr/ghost-static-page-hosting-problems/"
+                    onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+                    <span class="hidden">Facebook</span>
+                </a>
+                <a class="icon-google-plus" href="https://plus.google.com/share?url=http://ake.kr/ghost-static-page-hosting-problems/"
+                   onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+                    <span class="hidden">Google+</span>
+                </a>
+            </section>
+
+
+        </footer>
+
+    </article>
+</main>
+
+<aside class="read-next">
+    <a class="read-next-story prev no-cover" href="/blogging-using-at-ghost-in-github-pages-part2/">
+        <section class="post">
+            <h2>Github Pages로 Ghost 이용하기 #2 - 설정하기 및 발행하기</h2>
+            <p>여기서부터 Bash Shell과 CMD(PowerShell)을 혼합하여 사용할것이다. 만일 이해가 안간다고 생각되면 즉시 중단하고 게시물부터 차근차근 다시한번 꼼꼼히 읽어가는걸&hellip;</p>
+        </section>
+    </a>
+</aside>
+
+
+
+        <footer class="site-footer clearfix">
+            <section class="copyright"><a href="http://ake.kr">ake.kr</a> &copy; 2016</section>
+            <section class="poweredby">Proudly published with <a href="https://ghost.org">Ghost</a></section>
+        </footer>
+
+    </div>
+
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+    
+    <script type="text/javascript" src="/assets/js/jquery.fitvids.js?v=314707dfcd"></script>
+    <script type="text/javascript" src="/assets/js/index.js?v=314707dfcd"></script>
+
+</body>
+</html>
