@@ -1,0 +1,72 @@
+@charset "utf-8";
+@import url(https://fonts.googleapis.com/earlyaccess/jejugothic.css);
+
+body,html {
+    margin:0;
+    padding:0;
+    background-color:transparent;
+    font-family:'Jeju Gothic';
+}
+
+* {
+    box-sizing:border-box;
+}
+
+#chatApp .chatItem {
+    border:4px solid #ffd11a;
+    margin:6px 24px;
+    transform:skewX(-15deg);
+}
+#chatApp .chatItem header {
+    color:#fff;
+    padding:4px 12px 4px 32px;
+    font-size:16px;
+    position:relative;
+}
+#chatApp .chatItem header span.platform {
+    display:inline-block;
+    position:absolute;
+    width:18px;
+    height:18px;
+    top:4px;
+    left:8px;
+    background-position:center center;
+    background-repeat:no-repeat;
+    background-size:100%;
+    transform:skewX(15deg);
+}
+#chatApp .chatItem header.twitch {
+    background-color:#6441A4;
+}
+#chatApp .chatItem header.twitch span.platform {
+    background-image:url('./twitch.png');
+}
+#chatApp .chatItem header.tvpot {
+    background-color:#FFBA1A;
+}
+#chatApp .chatItem header.tvpot span.platform {
+    background-image:url('./potplayer.png');
+}
+#chatApp .chatItem header.youtube {
+    background-color:#CD201F;
+}
+#chatApp .chatItem header.youtube span.platform {
+    background-image:url('./youtube.png');
+}
+#chatApp .chatItem article {
+    padding:8px 12px;
+    background-color:#fff;
+    position:relative;
+    font-size:14px;
+}
+#chatApp .chatItem article span.timestamp {
+    position:absolute;
+    bottom:4px;
+    right:4px;
+    font-size:11px;
+    opacity:0.35;
+}
+#chatApp .chatItem span.skewWrap {
+    transform:skewX(15deg);
+    display:inline-block;
+}
