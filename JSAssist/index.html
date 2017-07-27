@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="ko">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="./stylesheet.css" />
+        <script src="./vue.js"></script>
+    </head>
+    <body>
+        <div id="chatApp">
+            <div class="chatItem" v-for="item in chatList">
+                <header :class="item.platform">
+                    <span class="platform"></span>
+                    <span class="skewWrap">{{ item.nickname }}</span>
+                </header>
+                <article>
+                    <span class="skewWrap">{{ item.data }}</span>
+                    <span class="timestamp">{{ item.timestamp.toLocaleTimeString() }}</span>
+                </article>
+            </div>
+        </div>
+        <script>
+            var app = new Vue({
+                el: '#chatApp',
+                data: {
+                    chatList: [
+                        {
+                            platform: 'twitch|tvpot|youtube',
+                            nickname: '테스트',
+                            data: '테스트 내용',
+                            timestamp: new Date()
+                        }
+                    ]
+                },
+                methods: {
+                    pushData: function(context) {
+                        context.timestamp = new Date();
+
+                        this.chatList.push(context);
+                        if (this.chatList.length >= 15) {
+                            this.chatList.shift();
+                        }
+                        window.scrollTo(0, 9999);
+                    }
+                },
+            });
+
+            const chatSocket = new WebSocket('ws://localhost:4649/JSAssistChatServer');
+            chatSocket.onmessage = (event) => {
+                const data = JSON.parse(event.data);
+
+                switch(data.type) {
+                    case 'chat_message':
+                        app.pushData({
+                            platform: data.platform,
+                            nickname: data.username,
+                            data: data.message
+                        });
+                        break;
+
+                    case 'config':
+                        break;
+
+                    default:
+                        break;
+                }
+            }
+        </script>
+    </body>
+</html>
