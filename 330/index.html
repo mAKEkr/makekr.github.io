@@ -11,12 +11,20 @@
 	</head>
 	<body>
 		<div id="vueApp">
-			<h1>FIND YOUR 330</h1>
+			<h1>FIND YOUR 330<span>ver 1.11</span></h1>
 
 			<div class="estimated">
 				<label>
+					<strong>300KOOL</strong> COUNT
+					<input type="text" name="unvalue" disabled :value="unvalue" />
+				</label>
+				<label>
 					<strong>330KOOL</strong> COUNT
 					<input type="text" name="estimated" disabled :value="estimated" />
+				</label>
+				<label>
+					<strong>330KOOL</strong> RATE
+					<input type="text" name="rate" disabled :value="rate" />
 				</label>
 			</div>
 			<form>
@@ -59,6 +67,24 @@
 									 )/30;
 
 						return (result.toString().indexOf('.') > -1 || result < 0 || result > this.judgement.kool) ? '0': result;
+					},
+					unvalue: function() {
+						var result = this.judgement.kool - this.estimated;
+
+						if (result >= 0) {
+							return result;
+						} else {
+							return 0;
+						}
+					},
+					rate: function() {
+						var result = parseFloat(this.estimated/this.judgement.kool)*100;
+
+						if (result >= 0) {
+							return result.toString().substr(0,5) + '%';
+						} else {
+							return 0;
+						}
 					}
 				}
 			});

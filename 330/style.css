@@ -20,16 +20,30 @@ h1, h2 {
 	padding:6px 12px;
 }
 
+h1 span {
+	vertical-align:top;
+	font-size:14px;
+	background-color:#008080;
+	margin-left:6px;
+	padding:4px 8px;
+}
+
 h2 {
 	margin-top:24px;
 }
 
+.estimated {
+	font-size:0;
+	display:flex;
+	flex-direction:row;
+}
 .estimated label {
 	margin-top:6px;
 	font-size:18pt;
 	color:#fff;
 	text-align:center;
-	display:block;
+	display:inline-block;
+	width:100%;
 }
 .estimated label strong {
 	color:#1cf6bc;
