@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="ko">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+		<title>Find your 330</title>
+
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Graduate" />
+		<link rel="Stylesheet" href="./style.css" />
+		<script src="./vue.min.js"></script>
+	</head>
+	<body>
+		<div id="vueApp">
+			<h1>FIND YOUR 330</h1>
+
+			<div class="estimated">
+				<label>
+					<strong>330KOOL</strong> COUNT
+					<input type="text" name="estimated" disabled :value="estimated" />
+				</label>
+			</div>
+			<form>
+				<h2>INPUT YOUR RESULT</h2>
+				<div class="row">
+					<span class="label">KOOL</span>
+					<input type="number" name="kool" v-model="judgement.kool" step="1" max="9999" placeholder="KOOL" />
+				</div>
+				<div class="row">
+					<span class="label">COOL</span>
+					<input type="number" name="cool" v-model="judgement.cool" step="1" max="9999" placeholder="COOL" />
+				</div>
+				<div class="row">
+					<span class="label">GOOD</span>
+					<input type="number" name="good" v-model="judgement.good" step="1" max="9999" placeholder="GOOD" />
+				</div>
+				<div class="row">
+					<span class="label">SCORE</span>
+					<input type="number" name="score" v-model="judgement.score" step="1" max="9999999" placeholder="SCORE" />
+				</div>
+			</form>
+		</div>
+		<script>
+			var App = new Vue({
+				el: '#vueApp',
+				data: {
+					'judgement': {
+						'kool': null,
+						'cool': null,
+						'good': null,
+						'score': null
+					}
+				},
+				watch: {
+					'judgement': {
+						handler: function(newVal) {
+
+						},
+						deep: true
+					}
+				},
+				computed: {
+					estimated: function() {
+						var result = (this.judgement.score -
+							   		  (this.judgement.kool * 300) -
+									  (this.judgement.cool * 150) -
+									  (this.judgement.good * 41)
+									 )/30;
+
+						return (result.toString().indexOf('.') > -1 || result < 0 || result > this.judgement.kool) ? '0': result;
+					}
+				}
+			});
+		</script>
+	</body>
+</html> 
