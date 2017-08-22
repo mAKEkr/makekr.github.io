@@ -85,3 +85,15 @@ h2 {
 	font-weight:bold;
 	border-radius:0;
 }
+
+a.clearvalue {
+	display:block;
+	border-radius:10px;
+	background-color:#008080;
+	color:#fff;
+	text-align:center;
+	text-decoration:none;
+	padding:12px 24px;
+	margin:24px 8px;
+	font-weight:bold;
+}

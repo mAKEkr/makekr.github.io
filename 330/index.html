@@ -45,6 +45,7 @@
 					<span class="label">SCORE</span>
 					<input type="number" name="score" v-model="judgement.score" step="1" max="9999999" placeholder="SCORE" />
 				</div>
+				<a class="clearvalue" href="#" @click="clearValues">CLEAR RESULT</a>
 			</form>
 		</div>
 		<script>
@@ -56,6 +57,16 @@
 						'cool': null,
 						'good': null,
 						'score': null
+					}
+				},
+				methods: {
+					clearValues: function() {
+						this.judgement.kool = null;
+						this.judgement.cool = null;
+						this.judgement.good = null;
+						this.judgement.score = null;
+
+						return false;
 					}
 				},
 				computed: {
