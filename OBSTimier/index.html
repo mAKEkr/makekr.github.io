@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="ko">
+    <head>
+        <style>
+            html, body {margin:0; padding:0;}
+            body {font-family:'Malgun Gothic', '맑은 고딕', '맑은고딕';}
+            #timerApp {
+                color:#fff;
+                font-size:14pt;
+            }
+        </style>
+        <script src="https://momentjs.com/downloads/moment-with-locales.js"></script>
+    </head>
+    <body>
+        <div id="timerApp"></div>
+        <script>
+            window.onload = function() {
+                var selector = document.getElementById('timerApp');
+                setInterval(function() {
+                    var Time = new Date();
+
+                    selector.innerHTML = moment().format('YY/MM/DD hh:mm:ss');
+                }, 1000);
+            }
+        </script>
+    </body>
+</html>
