@@ -17,8 +17,6 @@
             window.onload = function() {
                 var selector = document.getElementById('timerApp');
                 setInterval(function() {
-                    var Time = new Date();
-
                     selector.innerHTML = moment().format('YY/MM/DD hh:mm:ss');
                 }, 1000);
             }
