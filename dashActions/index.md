@@ -58,3 +58,8 @@ miio는 샤오미의 IoT기기들을 제어하기 위한 nodejs 라이브러리�
 ### miio의 Generic API(Low-level API)사용하기
 
 ## Nodejs 코드 daemon으로 구동시키기(pm2)
+
+### 심볼릭 링크 생성
+```
+ln -s /volume2/@appstore/Node.js_v8/usr/local/bin/pm2 pm2
+```
