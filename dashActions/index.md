@@ -18,6 +18,12 @@
 6. 상품선택란이 나오면 Amazon Shopping 어플리케이션을 끈다. 즉 Wi-Fi 연결까지만 진행한다.
 7. 그 뒤에 manage your Dash devices란에서 Choose an item to complete setup이라는 에러가 나오는 항목이 있으면 제대로 등록된거다.
 
+## Synology에서 준비하기
+### OpenPKG 설치하기(opkg)
+### pcap과 libpcap관련된것 설치
+### nodejs 모듈 컴파일을 위한 gcc 설치
+### 부족한 include library 설치
+
 ## 대시 버튼을 nodejs로 연결하기
 이해를 쉽게 하기 위하여 '연결한다' 라고 했지만, 정확히 말하자면 '신호를 훔친다' 라고 해야된다.
 
