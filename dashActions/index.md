@@ -1,4 +1,4 @@
-# Amazon Dash Hack Guide with Synology
+# Amazon Dash Hack Guide with Synology DSM 6.2
 
 ## 발단
 샤오미 선풍기
