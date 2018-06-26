@@ -1,4 +1,4 @@
-# Amazon Dash Hack Guide(Ko)
+# Amazon Dash Hack Guide with Synology
 
 ## 발단
 샤오미 선풍기
