@@ -10,6 +10,13 @@
 
 ## 대시 버튼 연결하기
 대시 버튼을 연결하기 위해서는 기본적으로 아마존 어플리케이션을 이용해야된다. iOS, 안드로이드 모두 다 잘 작동한다.
+1. Amazon Shopping 어플리케이션을 설치한다(iOS는 Appstore, Android는 Play Store에서)
+2. 아마존 계정 로그인
+3. 왼쪽의 햄버거 메뉴 토글버튼을 눌러 메뉴를 열고 Your Account 클릭
+4. 아래에 내리다보면 Manage your Dash devices 메뉴가 나온다
+5. Set up a new Dash Button을 누르고 진행하다가
+6. 상품선택란이 나오면 Amazon Shopping 어플리케이션을 끈다. 즉 Wi-Fi 연결까지만 진행한다.
+7. 그 뒤에 manage your Dash devices란에서 Choose an item to complete setup이라는 에러가 나오는 항목이 있으면 제대로 등록된거다.
 
 ## 대시 버튼을 nodejs로 연결하기
 이해를 쉽게 하기 위하여 '연결한다' 라고 했지만, 정확히 말하자면 '신호를 훔친다' 라고 해야된다.
