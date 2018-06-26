@@ -53,3 +53,7 @@ miio는 샤오미의 IoT기기들을 제어하기 위한 nodejs 라이브러리�
 
 기본적인 연결은 miio라이브러리를 이용하나, 기기에 특정 액션을 전송할때에는 https://github.com/aholstenson/miio/issues/159 해당 이슈에 적힌 내용의 데이터들을 토대로 작성해야된다.
 
+### 기본 전략 만들기
+
+### miio의 Generic API(Low-level API)사용하기
+
