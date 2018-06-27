@@ -58,9 +58,37 @@ opkg의 설치가 끝났다는 가정하에
 완벽한 과정은 아니지만, 어느정도 간단하게 설명할 수준이라고 보면 된다. 우린 이 3-4번의 과정에 몰래 끼어들어갈 것이다.
 
 ### 패킷처리용 라이브러리 설치
+```
+npm install cap --save
+```
+외부의 예제에서는 많이들 ```node-pcap```혹은 ```pcap```을 이용하라고 권장한다. 그렇지만 해당 패키지는 유지보수가 제대로 안되는 상황이며 컴파일 과정에서도 오류가 발생했다.
+Cap은 내가 찾은 nodejs의 패키지중에서 그나마 최근에 유지보수 되고있으며 가장 dependencies가 적고 컴파일에 큰 문제가 없었던 저장소이다.
+
+그렇기에 Cap이라는 다소 생소한 라이브러리를 이용하도록 한다.
 
 ### 코드 작성하기
+```javascript
+const Cap = require('cap').Cap,
+      decoders = require('cap').decoders; // 디코더가 없으면 날패킷으로 분석할 수 밖에 없다
 
+const Capture = new Cap()
+const netBuffer = Buffer.alloc(65535)
+const linkType = Capture.open('wlan0', // 장치에 맞는 포트를 적어두고(모른다면 ifconfig 쳐서 확인하라)
+                  '(udp and src port 68 and dst port 67 and udp[247:4] == 0x63350103) and src host 0.0.0.0', // 필터링 조건문이다.
+                  // dash-button과 node-dash-button 저장소를 참고하여 가져왔다.
+                  // 위의 조건문은 ARP검색용 조건문으로 보면된다.
+                  10 * 1024 * 1024,
+                  netBuffer)
+
+Capture.setMinBytes && Capture.setMinBytes(0)
+
+Capture.on('packet', (nbytes, trunc) => {
+  const rawPacket = buffer.slice(0, nbytes).toString('hex')
+  const connection = decoders.Ethernet(netBuffer)
+  
+  console.log(rawPacket, connection)
+});
+```
 ### 개별 대시버튼별로 모듈화하기
 
 ## 트위터 연동 대시 버튼 메세지 작성하기
@@ -89,7 +117,6 @@ module.exports = () => {
   })
 }
 ```
-
 
 ## Amazon Dash Button으로 샤오미 선풍기 제어하기
 선풍기 제어에 있어서는 miio 라이브러리를 이용한다.
