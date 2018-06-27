@@ -67,6 +67,29 @@ opkg의 설치가 끝났다는 가정하에
 개별 대시버튼별로 모듈화 한 덕분에 손쉽게 처리가 가능하게 되었다.
 
 개발자 등록과정 및 토큰 발급과정은 생략한다.
+```javascript
+/* current-dash-button=Charmin */
+// 파일명이 맥어드레스와 일치하기때문에 기본적으로 파악하기 힘들다고 보았다.
+// 그래서 위와 같이 알아볼 수 있는 라벨링을 통하여 어떤 대시버튼인지 알 수 있도록 만들었다.
+
+const Twitter = require('twitter')
+
+module.exports = () => {
+  const client = new Twitter({
+    consumer_key: '',
+    consumer_secret: '',
+    access_token_key: '',
+    access_token_secret: ''
+  });
+
+  client.post('statuses/update', {
+    status: 'message'
+  }, (err, tweet, response) => {
+    console.log(err)
+  })
+}
+```
+
 
 ## Amazon Dash Button으로 샤오미 선풍기 제어하기
 선풍기 제어에 있어서는 miio 라이브러리를 이용한다.
@@ -75,17 +98,15 @@ miio는 샤오미의 IoT기기들을 제어하기 위한 nodejs 라이브러리�
 
 기본적인 연결은 miio라이브러리를 이용하나, 기기에 특정 액션을 전송할때에는 https://github.com/aholstenson/miio/issues/159 해당 이슈에 적힌 내용의 데이터들을 토대로 작성해야된다.
 
-### 기본 전략 만들기
+### 기본 전략 구상하기
+
 
 ### miio의 Generic API(Low-level API)사용하기
+miio에서 지원하는 기기들은 메소드를 호출하는 형태로 간단하게 조절이 가능하지만, 아쉽게도 내가 사용하고있는 `zhimi.fan.v3`은 miio에서 기본 연결만 지원하는 Generic(포괄적) 기기로 인식된다.
 
 ## Nodejs 코드 daemon으로 구동시키기(pm2)
 forever, nodemon과 같은것들 대신에 pm2를 이용하기로 결정했다.
-```
-npm install -g pm2
-pm2 start (script file) --name="dash-button"
-pm2 list
-```
+
 추가로 pm2는 keymetrics.io와 연동하여 외부에서 모니터링이 가능하다. 연동과정은 직접 PM2 저장소 혹은 keymetrics.io 에 접속하여 확인하길 바란다.
 
 ### 심볼릭 링크 생성
@@ -94,6 +115,13 @@ ln -s /volume2/@appstore/Node.js_v8/usr/local/bin/pm2 pm2
 ```
 시놀로지는 노드와 같은 패키지를 설치하면 일종의 독립된 컨테이너로 실행하고있다. 심볼릭 링크를 생성해야지만 pm2의 글로벌 명령어를 실행 가능하다.
 
+### pm2를 통한 daemon실행
+```
+npm install -g pm2
+pm2 start (script file) --name="dash-button"
+pm2 list
+```
+`pm2 list`는 확인을 위한 명령어이다.
 
 ## 결론
 이런 뻘짓은 나혼자 하는걸로 충분하다. 다른사람들은 하지말자.
