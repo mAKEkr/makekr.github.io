@@ -80,8 +80,33 @@ miio는 샤오미의 IoT기기들을 제어하기 위한 nodejs 라이브러리�
 ### miio의 Generic API(Low-level API)사용하기
 
 ## Nodejs 코드 daemon으로 구동시키기(pm2)
+forever, nodemon과 같은것들 대신에 pm2를 이용하기로 결정했다.
+```
+npm install -g pm2
+pm2 start (script file) --name="dash-button"
+pm2 list
+```
+추가로 pm2는 keymetrics.io와 연동하여 외부에서 모니터링이 가능하다. 연동과정은 직접 PM2 저장소 혹은 keymetrics.io 에 접속하여 확인하길 바란다.
 
 ### 심볼릭 링크 생성
 ```
 ln -s /volume2/@appstore/Node.js_v8/usr/local/bin/pm2 pm2
+```
+시놀로지는 노드와 같은 패키지를 설치하면 일종의 독립된 컨테이너로 실행하고있다. 심볼릭 링크를 생성해야지만 pm2의 글로벌 명령어를 실행 가능하다.
+
+
+## 결론
+이런 뻘짓은 나혼자 하는걸로 충분하다. 다른사람들은 하지말자.
+
+### 총 소요비용
+```
+대시 버튼 : 개당 4000원꼴
+USB Wi-Fi 어댑터 : 8000원(집에 있지만 슬림형으로 다시 재구매했다)
+```
+
+### 총 소요시간
+```
+패키지 설치시스템 이해 그리고 새 정보 습득 : 6시간
+코드작성 : 6시간(miio의 로우레벨 API와 관련된 도큐멘테이션이 아예 없었다. 직접 뜯어보며 확인하는것뿐)
+총 소요시간 : 12시간
 ```
